@@ -18,13 +18,13 @@ jobs:
   qemu-user-static:
     runs-on: ubuntu-latest
     env:
-      VERSION: 7.2.0-1
-      ORIGIN_VERSION: 7.2+dfsg-1~bpo11+2
+      VERSION: 8.2.5
+      ORIGIN_VERSION: 8.2.5+ds-1
     steps:
       - uses: actions/checkout@v2
       - name: Set variables
         run: |
-          echo "DOCKER_REPO=docker.io/$GITHUB_REPOSITORY" >> $GITHUB_ENV
+          echo "DOCKER_REPO=defreitas/qemu-user-static" >> $GITHUB_ENV
       - name: Build
         run: |
           wget --content-disposition http://ftp.de.debian.org/debian/pool/main/q/qemu/qemu-user-static_${{ env.ORIGIN_VERSION }}_amd64.deb
